@@ -15,50 +15,37 @@ let reviews = [wSmith, kSardo, bSchierl, lWinck];
 
 if (path == "about_us.html") {
     $(document).ready(function() {
-        for (i = 0; i < reviews.length; i += 1) {
-            var text = "#revTxt_" + (i + 1);
-            var person = "#revP_" + (i + 1);
-            $(text).text(reviews[i].review);
-            $(person).text(reviews[i].person);
-        }
+        var selected = 0;
+        showSlides(selected);
 
         $("[id*='dot_'").click(function() {
             var id = $(this).attr("id");
             var split = id.split("_");
             var num = parseInt(split[1]);
-            currentSlide(num);
+            showSlides(num, "same");
         });
 
-        $("#prevBtn").click(function() { plusSlides(-1); });
-        $("#nextBtn").click(function() { plusSlides(1); });
+        $("#prev").click(function() { 
+            showSlides(1, "minus"); 
+        });
+        $("#next").click(function() { 
+            showSlides(1, "add"); 
+        });    
 
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        // Next/previous controls
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        // Thumbnail image controls
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("Rev");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+        function showSlides(num, operation) {
+            if (operation == "add") { 
+                selected += num; 
+                if (selected >= reviews.length) { selected = 0; }
             }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace("setText", "");
+            else if (operation == "minus") { 
+                selected -= num; 
+                if (selected < 0) { selected = (reviews.length - 1); }
             }
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " setText";
+            else if (operation == "same") { selected = (num - 1); }
+
+            var review = reviews[selected];
+            $("#revTxt").text(review.review);
+            $("#revP").text(review.person);
         }
     }); 
 }

@@ -1,6 +1,5 @@
 * { box-sizing: border-box }
 
-.left { text-align: left; }
 .hr_full { min-width: 100%; }
 .large { font-size: xx-large; }
 .active { text-shadow: 2px 2px 5px turquoise; } 
@@ -95,46 +94,24 @@ article img {
 .carousel {
     margin: auto;
     max-width: 80%;
-    position: relative;
-}
-
-.Rev { 
-    display: none; 
-    text-align: center;
 }
 
 .select { text-align: center; }
 
-.prev, .next {
-    top: 70%;
+#prev, #next {
     padding: 2%;
     color: black;
     cursor: pointer;
-    font-size: 30px;
-    position: absolute;
-    transition: 0.6s ease;
+    font-size: xx-large;
 }
 
-.prev {
-    left: 0;
-    border-radius: 0 3px 3px 0;
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-[class*="revTxt"] {
-    font-size: 15px;  
-    text-align: center;
-    position: absolute;
-}
+#prev { border-radius: 0 3px 3px 0; }
+#next { border-radius: 3px 0 0 3px; }
 
 .dot {
+    margin: 1%;
     width: 20px;
     height: 20px;
-    margin: 0 1%;
     cursor: pointer;
     border-radius: 50%;
     display: inline-block;
@@ -142,18 +119,8 @@ article img {
     transition: background-color 0.6s ease;
 }
 
-.prev:hover, .next:hover, .dot:hover, .setText {
+#prev:hover, #next:hover, .dot:hover, .active_dot {
     color: snow;
     text-shadow: none;
     background-color: darkslateblue;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
 }
