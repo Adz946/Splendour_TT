@@ -51,10 +51,8 @@ button {
 }
 /* ---------------------------------------------------------------------------------------------------- */
 nav, form {
-    top: 0;
     color: snow;
     min-width: 15%;
-    position: sticky;
     text-shadow: none;
     height: fit-content;
     background-color: black;
@@ -108,7 +106,7 @@ article img {
 .select { text-align: center; }
 
 .prev, .next {
-    top: 50%;
+    top: 70%;
     padding: 2%;
     color: black;
     cursor: pointer;
