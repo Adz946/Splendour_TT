@@ -1,35 +1,161 @@
+* { box-sizing: border-box }
+
 .left { text-align: left; }
 .hr_full { min-width: 100%; }
-.large { font-size: x-large; }
-.active { text-shadow: 2px 2px 5px cyan; } 
-.row { display: flex; flex-direction: row; }
-.column { display: flex; flex-direction: column; }
-
-html { 
-    color: black; 
-    background-color: lightgoldenrodyellow;
+.large { font-size: xx-large; }
+.active { text-shadow: 2px 2px 5px turquoise; } 
+/* ---------------------------------------------------------------------------------------------------- */
+.row {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly;
 }
 
-header img { 
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.column { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-evenly;
 }
 
-hr { min-width: 80%; }
+body, input, .Rev * { text-align: center; }
+article p, footer { text-align: left; }
+/* ---------------------------------------------------------------------------------------------------- */
+header, footer, nav, article, form, input, select, textarea, button, .reviews { padding: 2%; }
 
-nav {
+header, main, footer, nav, article, form { box-shadow: 1px 2px 3px snow; }
+
+header, footer, body, .reviews { background-image: radial-gradient(snow, lightblue, snow); }
+
+h2, h3, h4, h5, h6 { 
+    color: snow;
+    text-shadow: 2px 2px 5px black;
+}
+
+h1, article h2, article h3, article h4, article h5, article h6 {
+    color: darkslateblue;
+    text-shadow: 2px 2px 5px white;
+}
+
+footer h4, footer p { 
+    color: darkslateblue;
+    text-shadow: 2px 2px 5px lightblue;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+main { margin: 1%; }
+
+button { 
+    width: 50%;
+    height: 8%;
+    cursor: pointer;
+    background-color: turquoise; 
+}
+/* ---------------------------------------------------------------------------------------------------- */
+nav, form {
     top: 0;
     color: snow;
-    padding: 2%;
-    max-width: 15%;
+    min-width: 15%;
     position: sticky;
-    text-align: center;
+    text-shadow: none;
+    height: fit-content;
     background-color: black;
 }
 
+hr { min-width: 70%; }
+
 a {
-    margin: 4%;
-    padding: 2%;
+    margin: 2%;
+    color: snow;
     cursor: pointer;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+form { 
+    min-width: 20%; 
+    align-items: center;
+    background-color: black;
+}
+
+form * {
+    margin: 2%;
+    min-width: 100%;
+}
+
+input::placeholder { color: black; opacity: 0.8; }
+textarea { resize: none; }
+/* ---------------------------------------------------------------------------------------------------- */
+article { 
+    min-width: 55%; 
+    text-shadow: 1px 2px 1px snow;
+}
+
+article p { color: black; }
+
+article img {
+    margin: 2%;
+    max-width: 100%;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+.carousel {
+    margin: auto;
+    max-width: 80%;
+    position: relative;
+}
+
+.Rev { 
+    display: none; 
+    text-align: center;
+}
+
+.select { text-align: center; }
+
+.prev, .next {
+    top: 50%;
+    padding: 2%;
+    color: black;
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+    transition: 0.6s ease;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+[class*="revTxt"] {
+    font-size: 15px;  
+    text-align: center;
+    position: absolute;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    margin: 0 1%;
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: lightgray;
+    transition: background-color 0.6s ease;
+}
+
+.prev:hover, .next:hover, .dot:hover, .setText {
+    color: snow;
+    text-shadow: none;
+    background-color: darkslateblue;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
